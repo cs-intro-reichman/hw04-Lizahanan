@@ -2,7 +2,9 @@ public class ArrayOps {
     public static void main(String[] args) {
         int [] array = {1, 2, 5 ,6 , 7, 7, 8, 8};
         System.out.println(secondMaxValue(array));
-    
+        int [] arr1 = {1 , 2 , 3 , 4, 4, 4, 5,6 };
+        int [] arr2 = {1, 2, 3, 4, 5,  };
+        System.out.println(containsTheSameElements(arr1, arr2));
     }
     
     public static int findMissingInt (int [] array) {
@@ -48,9 +50,19 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        // Write your code here:
+        int a = array1.length - 1;
+        int b = array2.length - 1 ;
+        int  existcount = 0;
+        for (int i = 0; i<= a; i++) {
+            for (int j = 0 ; j<= b; j++){
+                if (array1[i]==array2[j])
+                existcount++;
+            }
+        } if (existcount==array1.length){
+            return true;
+        }  else
         return false;
-    }
+    }  
 
     public static boolean isSorted(int [] array) {
         // Write your code here:
