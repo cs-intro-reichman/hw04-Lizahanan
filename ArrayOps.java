@@ -1,7 +1,8 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int [] arr = {4 , 2 , 1};
-        System.out.println(isSorted(arr));
+        int [] arr = {4 ,4, 2 , 1, 3};
+        int [] arr2 = {4 , 1, 2, 2 ,2 ,2,3};
+        System.out.println(containsTheSameElements(arr, arr2));
     }
     
     public static int findMissingInt (int [] array) {
@@ -48,18 +49,37 @@ public class ArrayOps {
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
         int a = array1.length - 1;
-        int b = array2.length - 1 ;
-        int  existcount = 0;
+        int b = array2.length - 1;
+        boolean firstDirection = true;
+        boolean secondDirection = true;
         for (int i = 0; i<= a; i++) {
+            boolean isPresentFlag = false;
             for (int j = 0 ; j<= b; j++){
-                if (array1[i]==array2[j])
-                existcount++;
+                if (array1[i]==array2[j]){
+                    isPresentFlag = true;
+                    break;
+                }
+
             }
-        } if (existcount==array1.length){
-            return true;
-        }  else
-        return false;
-    }  
+            if (!isPresentFlag){
+                firstDirection = false;
+            }
+        } 
+        for (int i = 0; i<= b; i++) {
+            boolean isPresentFlag = false;
+            for (int j = 0 ; j<= a; j++){
+                if (array2[i]==array1[j]){
+                    isPresentFlag = true;
+                    break;
+                }
+
+            }
+            if (!isPresentFlag){
+                secondDirection = false;
+            }
+        } 
+        return (firstDirection && secondDirection);
+    }
 
     public static boolean isSorted(int [] array) {
         int n = array.length;
