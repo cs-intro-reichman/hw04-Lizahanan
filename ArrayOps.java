@@ -1,8 +1,8 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int [] arr = {4 ,4, 2 , 1, 3};
-        int [] arr2 = {4 , 1, 2, 2 ,2 ,2,3};
-        System.out.println(containsTheSameElements(arr, arr2));
+        int [] arr = {4 ,4, 2 , 1, };
+        ;
+        System.out.println(isSorted(arr));
     }
     
     public static int findMissingInt (int [] array) {
@@ -83,18 +83,23 @@ public class ArrayOps {
 
     public static boolean isSorted(int [] array) {
         int n = array.length;
-        int max = array [0];
-        int min = array [0];
-        for (int i = 0; i<n;i++){
-           if (max<=array[i]){
-            max = array[i];
-           } else if (min>=array[i]){
-            min = array[i];
-           } else break;
-        } if (max == array[n-1] || min == array[n-1]) {
-            return true;
-        } else 
-        return false;
-    }
+        
+        boolean increasing = true;
+        for (int i = 1; i <n;i++){
+            if (array[i]<array[i-1]) {
+                increasing = false;
+                break;
+            }
+        }
+
+        boolean decreasing = true;
+        for (int i = 1; i < n; i++){
+            if (array [i]> array[i-1]){
+                decreasing = false;
+                break;
+            }
+        }
+        return increasing || decreasing;
+    }   
 
 }
