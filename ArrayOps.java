@@ -1,10 +1,6 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int [] array = {1, 2, 5 ,6 , 7, 7, 8, 8};
-        System.out.println(secondMaxValue(array));
-        int [] arr1 = {1 , 2 , 3 , 4, 4, 4, 5,6 };
-        int [] arr2 = {1, 2, 3, 4, 5,  };
-        System.out.println(containsTheSameElements(arr1, arr2));
+        
     }
     
     public static int findMissingInt (int [] array) {
@@ -65,7 +61,7 @@ public class ArrayOps {
     }  
 
     public static boolean isSorted(int [] array) {
-        // Write your code here:
+        
         return false;
     }
 
