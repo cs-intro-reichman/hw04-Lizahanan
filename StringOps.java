@@ -22,8 +22,8 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String s = "Hello World i LoVe You";
-        System.out.println(capVowelsLowRest(s));
+        String s = "HeLLLlo World i LoVe You";
+        System.out.println(camelCase(s));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -45,8 +45,28 @@ public class StringOps {
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String newString = "";
+		for (int i = 0; i < string.length(); i++) {
+			while (string.charAt(i) == ' ') {
+				i++;
+			}
+			char ch = string.charAt(i);
+			if ((newString != "") && (string.charAt(i-1) == ' ')) { 
+				if (ch >= 'a' && ch <= 'z'){
+                    ch = Character.toUpperCase(ch);
+					newString+= ch ;
+				} else {
+					newString+= string.charAt(i);
+				}
+			} else {
+				if ((ch >= 'A') && (ch <= 'Z')){
+					ch = Character.toLowerCase(ch);
+                    newString+=ch;
+				} else {
+					newString+= string.charAt(i);
+				}
+			}
+		} return newString;
     }
 
     public static int[] allIndexOf (String string, char chr) {
