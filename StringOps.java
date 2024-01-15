@@ -22,21 +22,68 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        String s = "HeLLLlo World i LoVe You";
         
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String newString = " ";
+        for (int i = 0; i<string.length();i++){
+            if (IsVowel(string.charAt(i))){
+                newString+=Character.toUpperCase(string.charAt(i));
+            } else {
+                newString+=Character.toLowerCase(string.charAt(i));
+            }
+        }
+
+        return newString;
+    }
+    private static boolean IsVowel (char ch){
+        char vowel = Character.toLowerCase(ch);
+        return vowel == 'a' || vowel == 'e' || vowel == 'i' ||
+                 vowel == 'o' || vowel == 'u' || vowel == 'o' ;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String newString = "";
+		for (int i = 0; i < string.length(); i++) {
+			while (string.charAt(i) == ' ') {
+				i++;
+			}
+			char ch = string.charAt(i);
+			if ((newString != "") && (string.charAt(i-1) == ' ')) { 
+				if (ch >= 'a' && ch <= 'z'){
+                    ch = Character.toUpperCase(ch);
+					newString+= ch ;
+				} else {
+					newString+= string.charAt(i);
+				}
+			} else {
+				if ((ch >= 'A') && (ch <= 'Z')){
+					ch = Character.toLowerCase(ch);
+                    newString+=ch;
+				} else {
+					newString+= string.charAt(i);
+				}
+			}
+		} return newString;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int index = 0;
+        for (int i = 0; i<string.length(); i++){
+            if (chr==string.charAt(i)){
+                index++;
+            }
+        }
+        int [] positions = new int[index];
+        index = 0;
+        for (int i = 0; i < string.length();i++){
+            if (chr==string.charAt(i)){
+                positions[index]=i;
+                index++;
+            }
+        }
+        return  positions;
     }
 }
