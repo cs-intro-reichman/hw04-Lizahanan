@@ -22,12 +22,26 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+        String s = "Hello World i LoVe You";
+        System.out.println(capVowelsLowRest(s));
     }
 
     public static String capVowelsLowRest (String string) {
-        
-        return "";
+        String newString = " ";
+        for (int i = 0; i<string.length();i++){
+            if (IsVowel(string.charAt(i))){
+                newString+=Character.toUpperCase(string.charAt(i));
+            } else {
+                newString+=Character.toLowerCase(string.charAt(i));
+            }
+        }
+
+        return newString;
+    }
+    private static boolean IsVowel (char ch){
+        char vowel = Character.toLowerCase(ch);
+        return vowel == 'a' || vowel == 'e' || vowel == 'i' ||
+                 vowel == 'o' || vowel == 'u' || vowel == 'o' ;
     }
 
     public static String camelCase (String string) {
