@@ -26,7 +26,7 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
+        
         return "";
     }
 
